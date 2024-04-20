@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->boolean('is_active')->default(1)->comment('0-inaktif, 1-aktif');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
